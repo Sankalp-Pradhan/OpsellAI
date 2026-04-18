@@ -14,6 +14,11 @@ import { GrowthOutcomes } from "@/components/growth/growthoutcomes";
 import OrbitApps from "@/components/integrate/orbitApps";
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
 import { cn } from "@/lib/utils";
+import Flipcard1 from "@/components/problem-cards/flipcard1";
+import Flipcard2 from "@/components/problem-cards/flipcard2";
+import Flipcard3 from "@/components/problem-cards/flipcard3";
+import Flipcard4 from "@/components/problem-cards/flipcard4";
+import RevenueLeakQuiz from "@/components/Revenue-leak-quiz";
 
 
 const geist = Geist({ subsets: ["latin"] });
@@ -149,30 +154,31 @@ export default function Home() {
           {/* Soft fade so it looks cleaner */}
           <div className="absolute inset-0 z-0 bg-gradient-to-b from-white via-transparent to-white border-b border-slate-300" />
 
-          <section className="relative z-10 mx-10 overflow-hidden border border-slate-200 bg-white/95 pt-16 pb-20 md:px-10 lg:px-16">
+          <section className="relative z-10 mx-10 overflow-hidden border border-slate-200 bg-white/95 pt-16 pb-20 px-4 md:px-10 lg:px-16">
             <div className="mt-2">
-              <p className="mb-1 text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">
+              <p className="mb-1 text-[10px] text-center md:text-start md:text-sm  font-semibold uppercase tracking-[0.24em] text-blue-600">
                 Why Growth Slows Down
               </p>
 
-              <h1 className="text-5xl font-extralight text-slate-900">
+              <h1 className="text-md text-center md:text-start md:text-5xl font-extralight text-slate-900">
                 The Hidden Reasons Brands Lose Sales
               </h1>
 
-              <p className="mt-2 text-md leading-8 text-slate-600">
+              <p className="mt-1 md:mt-2 text-[8px]  md:text-[16px] text-center md:text-start md:leading-8 text-slate-600">
                 Your team spends more time switching tools and reacting late than
                 actually growing the business.
               </p>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 items-stretch justify-items-center gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              <Card1 />
-              <Card2 />
-              <Card3 />
-              <Card4 />
+            <div className="mt-5 md:mt-10 grid grid-cols-2 items-stretch justify-items-center gap-2 md:gap-6 sm:grid-cols-2 lg:grid-cols-4 mx-4 md:mx-0">
+              <Flipcard1 />
+              <Flipcard2 />
+              <Flipcard3 />
+              <Flipcard4 />
             </div>
           </section>
         </div>
+
 
         {/* how opsell delivers growth */}
 
@@ -184,31 +190,43 @@ export default function Home() {
         </div>
 
 
+        <div className="border-1">
+          
+          <section className="relative overflow-hidden border-l-1  border-r-1 md:pb-20 md:pt-20 border-gray-300 bg-white mx-4 sm:mx-6 lg:mx-10">
+            <div className="mx-auto flex w-full max-w-7xl flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12 px-4 sm:px-6 lg:px-8 py-10 lg:py-0">
 
+              {/* Left Side - Orbit Apps */}
+              <div className="w-full lg:w-1/2 flex justify-center lg:justify-start order-1">
+                <div className="w-full max-w-[320px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-none scale-90 sm:scale-100">
+                  <OrbitApps />
+                </div>
+              </div>
 
-        <section className="relative overflow-hidden border border-slate-200 bg-white mx-10">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-12 px-8">
+              {/* Right Side - Text */}
+              <div className="w-full lg:w-1/2 max-w-2xl text-center lg:text-left order-2">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-semibold leading-tight text-slate-800">
+                  One Hub for Every <br className="hidden sm:block" />
+                  E-commerce Platform
+                </h1>
 
-            {/* Left Side - Orbit Apps */}
-            <div className="flex w-1/2 justify-start">
-              <OrbitApps />
+                <p className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg leading-6 sm:leading-7 text-slate-600 max-w-xl mx-auto lg:mx-0">
+                  Opsell brings together pricing, listings, competitor tracking and
+                  automation from every marketplace into one intelligent platform,
+                  helping your team make faster decisions, react instantly and grow more
+                  efficiently.
+                </p>
+
+                <button className="mt-5 sm:mt-6 px-4 sm:px-5 py-2.5 border border-slate-700 rounded-md text-sm sm:text-base text-slate-900 hover:bg-slate-900 hover:text-white transition-colors">
+                  Learn more
+                </button>
+              </div>
             </div>
+          </section>
+        </div>
 
-            {/* Right Side - Text */}
-            <div className="w-1/2 max-w-xl">
-              <h1 className="text-5xl font-semibold leading-tight text-slate-800">
-                One Hub for Every <br /> E-commerce Platform
-              </h1>
 
-              <p className="mt-5 text-base leading-7 text-slate-600">
-                Opsell brings together pricing, listings, competitor tracking and
-                automation from every marketplace into one intelligent platform,
-                helping your team make faster decisions, react instantly and grow more
-                efficiently.
-              </p>
-              <button className="px-4 py-2 mt-3 border border-slate-700 rounded-md text-slate-900">Learn more</button>
-            </div>
-          </div>
+        <section>
+          <RevenueLeakQuiz />
         </section>
 
 

@@ -125,7 +125,7 @@ export default function Navbar() {
                         Try for free
                     </a>
 
-                    <button className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/70 text-slate-900 transition hover:bg-slate-100">
+                    {/* <button className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/70 text-slate-900 transition hover:bg-slate-100">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="18"
@@ -147,7 +147,7 @@ export default function Navbar() {
                             <path d="m6.34 17.66-1.41 1.41" />
                             <path d="m19.07 4.93-1.41 1.41" />
                         </svg>
-                    </button>
+                    </button> */}
                 </div>
             </motion.div>
         </header>

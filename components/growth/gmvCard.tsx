@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -17,33 +18,31 @@ export const GMVCard = () => {
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4 }}
-      className="group relative h-full overflow-hidden shadow-2xl rounded-[28px] border border-slate-200/70 bg-white/85 p-5  backdrop-blur-xl transition-all duration-500 ]"
+      className="group relative h-full overflow-hidden rounded-[28px] border border-slate-200/70 bg-white/85 p-4 md:p-5 shadow-2xl backdrop-blur-xl transition-all duration-500"
     >
-      {/* Background */}
-   
       {/* Arrow badge */}
-      <div className="absolute right-5 top-5 z-10 flex h-8 w-8 items-center justify-center rounded-md bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.45)] transition-transform duration-500 group-hover:scale-110">
+      <div className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-md bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.45)] transition-transform duration-500 group-hover:scale-110 md:right-5 md:top-5">
         <ArrowUpRight className="h-4 w-4 text-white" />
       </div>
 
-      <div className="relative z-10">
-        <span className="mb-2 inline-block text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-900">
+      <div className="relative z-10 pr-10 md:pr-12">
+        <span className="mb-2 inline-block text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-900">
           Increase GMV
         </span>
 
         <div className="mb-1 flex items-baseline gap-2">
-          <h3 className="text-5xl font-bold leading-none text-emerald-500 md:text-6xl">
+          <h3 className="text-4xl md:text-6xl font-bold leading-none text-emerald-500">
             +18%
           </h3>
         </div>
 
-        <p className="mb-5 text-xs font-medium text-slate-500">
+        <p className="mb-4 md:mb-5 text-[11px] md:text-xs font-medium text-slate-500">
           Average GMV Growth
         </p>
       </div>
 
       {/* Chart */}
-      <div className="relative z-10 mt-2 h-32 md:h-36">
+      <div className="relative z-10 mt-2 h-24 md:h-36">
         <svg
           viewBox="0 0 400 200"
           className="h-full w-full"
@@ -135,7 +134,6 @@ export const GMVCard = () => {
           />
         </svg>
 
-        {/* Floating particles */}
         {[...Array(4)].map((_, i) => (
           <motion.div
             key={i}
@@ -160,14 +158,13 @@ export const GMVCard = () => {
       </div>
 
       {/* Description */}
-      <div className="relative z-10 mt-5">
-        <p className="max-w-md text-sm leading-6 text-slate-600">
+      <div className="relative z-10 mt-4 md:mt-5">
+        <p className="max-w-md text-xs md:text-sm leading-6 text-slate-600">
           Smarter pricing, AI-powered bundles, and optimized product listings
           help brands drive more sales, improve order value, and unlock faster
           growth across every platform.
         </p>
 
-        {/* Chips */}
         <div className="mt-4 flex flex-wrap gap-2">
           {chips.map((chip) => (
             <motion.span
@@ -180,7 +177,7 @@ export const GMVCard = () => {
                 delay: chip.delay,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="rounded-full border border-emerald-200 bg-emerald-50/80 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 shadow-sm backdrop-blur"
+              className="rounded-full border border-emerald-200 bg-emerald-50/80 px-2 py-1 text-[10px] md:px-2.5 md:text-[11px] font-semibold text-emerald-700 shadow-sm backdrop-blur"
             >
               {chip.label}
             </motion.span>
@@ -189,4 +186,4 @@ export const GMVCard = () => {
       </div>
     </motion.div>
   );
-}
+};

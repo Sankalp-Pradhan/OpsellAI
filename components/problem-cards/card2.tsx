@@ -3,68 +3,69 @@ import { TrendingDown, MousePointer2 } from "lucide-react";
 const Card2 = () => {
   return (
     <div className="w-full">
-      <article className="mx-auto flex h-full w-full max-w-[240px] flex-col overflow-hidden rounded-2xl border border-border/50 bg-card text-card-foreground shadow-xl">
+      <article className="mx-auto flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border/50 bg-card text-card-foreground shadow-xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-border/80 hover:shadow-2xl">
         {/* Visual */}
-        <div className="relative h-56 overflow-hidden bg-gradient-to-br from-secondary via-muted to-secondary">
+        <div className="relative h-20 md:h-52 overflow-hidden bg-gradient-to-br from-secondary via-muted to-secondary">
           {/* Product card */}
-          <div className="absolute left-1/2 top-1/2 w-[160px] -translate-x-1/2 -translate-y-[58%] rounded-2xl border border-border bg-background p-3 shadow-xl">
-            <div className="mb-3 h-16 rounded-xl bg-muted/70" />
-            <div className="space-y-2">
-              <div className="h-2 w-3/4 rounded bg-muted" />
-              <div className="h-2 w-1/2 rounded bg-muted" />
+          <div className="absolute left-1/2 top-1/2 w-[95px] md:w-[150px] -translate-x-1/2 -translate-y-[56%] rounded-xl md:rounded-2xl border border-border bg-background p-2 md:p-3 shadow-xl">
+            <div className="mb-2 md:mb-3 h-8 md:h-16 rounded-lg md:rounded-xl bg-muted/70" />
+
+            <div className="space-y-1 md:space-y-2">
+              <div className="h-1 md:h-2 w-3/4 rounded bg-muted" />
+              <div className="h-1 md:h-2 w-1/2 rounded bg-muted" />
             </div>
 
-            {/* Price progression: ₹999 → ₹899 → ₹949 */}
-            <div className="mt-3 flex items-center gap-1">
-              <span className="text-[10px] text-muted-foreground line-through">
-                ₹999
-              </span>
-              <span className="text-[10px] text-muted-foreground">→</span>
-              <span className="rounded-md bg-red-100 px-1.5 py-0.5 text-[10px] font-semibold text-red-600">
+            {/* Price progression */}
+            <div className="mt-2 md:mt-3 flex items-center gap-0.5 md:gap-1 text-[6px] md:text-[10px]">
+              <span className="text-muted-foreground line-through">₹999</span>
+              <span className="text-muted-foreground">→</span>
+              <span className="rounded bg-red-100 px-1 py-0.5 font-semibold text-red-600 md:rounded-md md:px-1.5">
                 ₹899
               </span>
-              <span className="text-[10px] text-muted-foreground">→</span>
-              <span className="rounded-md bg-yellow-100 px-1.5 py-0.5 text-[10px] font-semibold text-yellow-700">
+              <span className="text-muted-foreground">→</span>
+              <span className="rounded bg-yellow-100 px-1 py-0.5 font-semibold text-yellow-700 md:rounded-md md:px-1.5">
                 ₹949
               </span>
             </div>
 
             {/* Manual price slider */}
-            <div className="relative mt-3">
-              <div className="h-1.5 w-full rounded-full bg-muted">
-                <div className="h-1.5 w-1/2 rounded-full bg-gradient-to-r from-red-400 to-yellow-400" />
+            <div className="relative mt-2 md:mt-3">
+              <div className="h-1 w-full rounded-full bg-muted md:h-1.5">
+                <div className="h-1 w-1/2 rounded-full bg-gradient-to-r from-red-400 to-yellow-400 md:h-1.5" />
               </div>
-              <div className="absolute -top-1 left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-2 border-background bg-foreground shadow-md" />
-              {/* Hand cursor dragging the slider */}
-              <MousePointer2 className="absolute -top-1 left-[calc(50%+10px)] h-4 w-4 -rotate-12 fill-background text-foreground drop-shadow" />
+
+              <div className="absolute -top-0.5 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full border border-background bg-foreground shadow-md md:-top-1 md:h-3.5 md:w-3.5 md:border-2" />
+
+              <MousePointer2 className="absolute -top-1 left-[calc(50%+6px)] h-2.5 w-2.5 -rotate-12 fill-background text-foreground drop-shadow md:left-[calc(50%+10px)] md:h-4 md:w-4" />
             </div>
           </div>
 
-          {/* Floating "Unsure?" tag */}
-          <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-red-500 px-2.5 py-1 shadow-md">
-            <TrendingDown className="h-3 w-3 text-white" />
-            <span className="text-[10px] font-medium text-white">Unsure?</span>
+          {/* Floating tags */}
+          <div className="absolute right-2 top-2 md:right-3 md:top-3 flex items-center gap-1 rounded-full bg-red-500 px-1.5 py-0.5 md:px-2.5 md:py-1 shadow-md rotate-[-6deg]">
+            <TrendingDown className="h-2.5 w-2.5 md:h-3 md:w-3 text-white" />
+            <span className="text-[7px] md:text-[10px] font-medium text-white">
+              Unsure?
+            </span>
           </div>
 
-          {/* Floating delta tags */}
-          <div className="absolute bottom-14 left-3 rotate-[-8deg] rounded-lg border border-border bg-background px-2 py-1 shadow-md">
-            <span className="text-[10px] font-semibold text-red-500">-10%</span>
+          <div className="absolute bottom-2 left-2 md:bottom-5 md:left-3 rotate-[-8deg] rounded-md md:rounded-lg border border-border bg-background px-1.5 py-0.5 md:px-2 md:py-1 shadow-md">
+            <span className="text-[7px] md:text-[10px] font-semibold text-red-500">
+              -10%
+            </span>
           </div>
-          <div className="absolute bottom-16 right-4 rotate-[16deg] rounded-lg border border-border bg-background px-2 py-1 shadow-md">
-            <span className="text-[10px] font-semibold text-green-600">+5%</span>
+
+          <div className="absolute bottom-2 right-2 md:bottom-6 md:right-4 rotate-[16deg] rounded-md md:rounded-lg border border-border bg-background px-1.5 py-0.5 md:px-2 md:py-1 shadow-md">
+            <span className="text-[7px] md:text-[10px] font-semibold text-green-600">
+              +5%
+            </span>
           </div>
         </div>
 
         {/* Content */}
-        <div className="flex flex-1 flex-col p-4">
-          <h2 className="mb-2 text-sm font-semibold leading-5 text-foreground">
+        <div className="flex flex-1 flex-col p-2.5 md:p-4">
+          <h2 className="text-[11px] md:text-sm font-semibold leading-[1.4] md:leading-5 text-foreground">
             Pricing Decisions Still Happen Manually
           </h2>
-          <p className="mb-3 text-xs leading-5 text-muted-foreground">
-            Your team changes prices based on guesswork, competitor checks, or
-            gut feeling instead of real-time data.
-          </p>
-         
         </div>
       </article>
     </div>
