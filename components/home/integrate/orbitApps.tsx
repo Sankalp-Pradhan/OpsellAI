@@ -33,12 +33,28 @@ const OrbitApps = () => {
                 delay={10}
             >
                 <div className="flex h-14 w-14 sm:h-20 sm:w-20 lg:h-28 lg:w-28 items-center justify-center rounded-2xl">
-                    {/* Amazon */}
+                <Image
+                        src="/assets/amazon.png"
+                        alt="Flipkart"
+                        width={84}
+                        height={84}
+                        className="h-8 w-8 sm:h-12 sm:w-12 lg:h-20 lg:w-20 object-contain"
+                    />
                 </div>
 
                 <div className="flex h-14 w-14 sm:h-20 sm:w-20 lg:h-28 lg:w-28 items-center justify-center rounded-2xl">
                     <Image
                         src="/assets/flipkart.png"
+                        alt="Flipkart"
+                        width={84}
+                        height={84}
+                        className="h-8 w-8 sm:h-12 sm:w-12 lg:h-20 lg:w-20 object-contain"
+                    />
+                </div>
+
+                <div className="flex h-14 w-14 sm:h-20 sm:w-20 lg:h-28 lg:w-28 items-center justify-center rounded-2xl">
+                    <Image
+                        src="/assets/shopify.png"
                         alt="Flipkart"
                         width={84}
                         height={84}
@@ -97,6 +113,16 @@ const OrbitApps = () => {
                 <div className="flex h-14 w-14 sm:h-20 sm:w-20 lg:h-28 lg:w-28 items-center justify-center rounded-2xl">
                     <Image
                         src="/assets/myntra.png"
+                        alt="Myntra"
+                        width={88}
+                        height={88}
+                        className="h-8 w-8 sm:h-12 sm:w-12 lg:h-20 lg:w-20 object-contain"
+                    />
+                </div>
+
+                <div className="flex h-14 w-14 sm:h-20 sm:w-20 lg:h-28 lg:w-28 items-center justify-center rounded-2xl">
+                    <Image
+                        src="/assets/jiomart.png"
                         alt="Myntra"
                         width={88}
                         height={88}

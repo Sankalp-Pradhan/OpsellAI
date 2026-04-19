@@ -6,7 +6,7 @@ import { GMVCard } from "./gmvCard";
 import ImproveMarginsCard from "./marginsCard";
 import ConversionCard from "./conversionCard";
 import TimeSavedCard from "./TimeCard";
-import { LayoutTextFlip } from "../ui/layout-text-flip";
+import { LayoutTextFlip } from "../../ui/layout-text-flip";
 
 export const GrowthOutcomes = () => {
   return (
@@ -26,7 +26,7 @@ export const GrowthOutcomes = () => {
             one stop solution to all these problems
           </span>
 
-          <motion.div className="relative mx-4 my-1 flex flex-col items-center justify-center gap-4 text-center  font-semibold sm:mx-0  md:text-6xl lg:text-7xl">
+          <motion.div className="relative mx-4 my-1 flex flex-col md:flex-row items-center justify-center gap-4 text-center  font-semibold sm:mx-0  md:text-6xl lg:text-7xl">
             <LayoutTextFlip
               text="Opsell for"
               words={["Growth", "Automation", "Optimization"]}

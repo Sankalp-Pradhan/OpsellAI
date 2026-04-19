@@ -1,24 +1,22 @@
 "use client"
 
 import { Geist } from "next/font/google";
-import Navbar from "@/components/ui/navbar";
 import { motion, type Variants } from "framer-motion"
+
+import Navbar from "@/components/ui/navbar";
+import { GrowthOutcomes } from "@/components/home/growth/growthoutcomes";
+import OrbitApps from "@/components/home/integrate/orbitApps";
+import RevenueLeakQuiz from "@/components/home/Revenue-leak-quiz";
+import FAQ from "@/components/home/faq/faq";
+
 import AnimatedBackground from "@/components/ui/animatedBackground";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import Card1 from "@/components/problem-cards/card1";
-import Card2 from "@/components/problem-cards/card2";
-import Card4 from "@/components/problem-cards/card4";
-import Card3 from "@/components/problem-cards/card3";
-import { GrowthOutcomes } from "@/components/growth/growthoutcomes";
-import OrbitApps from "@/components/integrate/orbitApps";
-import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
-import { cn } from "@/lib/utils";
-import Flipcard1 from "@/components/problem-cards/flipcard1";
-import Flipcard2 from "@/components/problem-cards/flipcard2";
-import Flipcard3 from "@/components/problem-cards/flipcard3";
-import Flipcard4 from "@/components/problem-cards/flipcard4";
-import RevenueLeakQuiz from "@/components/Revenue-leak-quiz";
+
+import Flipcard1 from "@/components/home/problem-cards/flipcard1";
+import Flipcard2 from "@/components/home/problem-cards/flipcard2";
+import Flipcard3 from "@/components/home/problem-cards/flipcard3";
+import Flipcard4 from "@/components/home/problem-cards/flipcard4";
 
 
 const geist = Geist({ subsets: ["latin"] });
@@ -43,8 +41,7 @@ export default function Home() {
   return (
     <div className={`${geist.className}  py-4  border-4`}>
       <div className=" border-b-4 z-1">
-        <Navbar />
-
+      
         <AnimatedBackground />
 
 
@@ -191,7 +188,7 @@ export default function Home() {
 
 
         <div className="border-1">
-          
+
           <section className="relative overflow-hidden border-l-1  border-r-1 md:pb-20 md:pt-20 border-gray-300 bg-white mx-4 sm:mx-6 lg:mx-10">
             <div className="mx-auto flex w-full max-w-7xl flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12 px-4 sm:px-6 lg:px-8 py-10 lg:py-0">
 
@@ -227,6 +224,12 @@ export default function Home() {
 
         <section>
           <RevenueLeakQuiz />
+        </section>
+
+
+
+        <section className="relative z-10 mx-10 overflow-hidden border border-slate-200 bg-white/95 pt-16 pb-20 px-4 md:px-10 lg:px-16">
+          <FAQ />
         </section>
 
 

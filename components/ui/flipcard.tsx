@@ -24,7 +24,7 @@ const FlipCard = ({
         </div>
 
         {/* Back */}
-        <div className="absolute inset-0 flex h-full w-full [transform:rotateY(180deg)] [backface-visibility:hidden] flex-col justify-center rounded-2xl border border-border/50 bg-gradient-to-br from-primary to-primary/80 p-6 text-primary-foreground shadow-xl">
+        <div className="absolute inset-0 flex h-full w-full [transform:rotateY(180deg)] [backface-visibility:hidden] flex-col justify-center rounded-2xl border border-border/50 bg-gradient-to-br from-blue-700 to-blue-300 p-6 text-primary-foreground shadow-xl">
           {backTitle && (
             <h3 className="mb-2 text-base font-semibold">{backTitle}</h3>
           )}

@@ -1,4 +1,4 @@
-import FlipCard from "../ui/flipcard";
+import FlipCard from "../../ui/flipcard";
 import Card1 from "./card1";
 import Card2 from "./card2";
 
