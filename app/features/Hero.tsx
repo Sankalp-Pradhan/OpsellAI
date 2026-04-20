@@ -3,7 +3,7 @@ import { ArrowRight, ShoppingBag, Sparkles, TrendingUp } from "lucide-react";
 const Hero = () => {
     return (
       <section
-        className="relative overflow-hidden pb-24 pt-20 lg:pt-28"
+        className="relative overflow-hidden pb-24 pt-20 lg:pt-28 px-20"
         style={{ background: "linear-gradient(135deg, #EEF2FF 0%, #F8F9FF 60%, #EDF4FF 100%)" }}
       >
         {/* Blurred blobs */}

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Geist } from "next/font/google"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 
 const geist = Geist({
   subsets: ["latin"],
@@ -12,17 +13,14 @@ const geist = Geist({
 
 const navLinks = [
   {
-    label: "Home",
-    href: "/",
+    label: "Features",
+    href: "/features",
   },
   {
     label: "How it Works",
     href: "/works",
   },
-  {
-    label: "Features",
-    href: "/features",
-  },
+
   {
     label: "Pricing",
     href: "/pricing",
@@ -32,6 +30,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [screenWidth, setScreenWidth] = useState(1200)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth)
@@ -107,29 +106,36 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
-          <ul className="relative flex h-11 items-center rounded-full px-2">
-            {navLinks.map((link, index) => (
-              <li
-                key={link.href}
-                className={`relative z-10 flex h-full items-center justify-center px-5 text-sm font-medium transition ${
-                  index === 0
-                    ? "text-slate-900"
-                    : "text-slate-500 hover:text-slate-900"
-                }`}
-              >
-                <Link href={link.href}>{link.label}</Link>
-              </li>
-            ))}
+          <ul className="flex items-center gap-2">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
 
-            <motion.div
-              layoutId="nav-pill"
-              transition={{
-                type: "spring",
-                stiffness: 250,
-                damping: 25,
-              }}
-              className="absolute left-2 top-1/2 h-9 w-[82px] -translate-y-1/2 rounded-full border border-slate-200 bg-white"
-            />
+              return (
+                <li key={link.href} className="relative">
+                  <Link
+                    href={link.href}
+                    className={`relative flex h-10 items-center justify-center rounded-full px-5 text-sm font-medium transition-all duration-300 ${isActive
+                        ? "text-slate-900"
+                        : "text-slate-500 hover:text-slate-900"
+                      }`}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-pill"
+                        className="absolute inset-0 rounded-full border border-slate-200 bg-white shadow-sm"
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+
+                    <span className="relative z-10">{link.label}</span>
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </nav>
 

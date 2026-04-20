@@ -165,7 +165,7 @@ const Index = () => {
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-semibold leading-[1.04] tracking-tight text-balance mb-6">
               From raw product data to{" "}
-              <span className="italic font-light text-blue-400">more sales</span> in 4 simple steps.
+              <span className=" text-blue-400">more sales</span> in 4 simple steps.
             </h1>
             <p className="text-base md:text-xl text-slate-500 max-w-2xl text-balance leading-relaxed">
               Opsell connects to your store, studies the market, and tells you exactly what to

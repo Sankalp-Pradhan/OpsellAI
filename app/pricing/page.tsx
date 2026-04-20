@@ -95,7 +95,7 @@ export default function PricingPage() {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       {/* Hero */}
       <section className="bg-gradient-to-b from-blue-50 via-white to-slate-50">
-        <div className="mx-auto max-w-7xl px-6 pb-20 pt-24 text-center lg:px-8">
+        <div className=" max-w-7xl px-6 pb-20 pt-24 text-center lg:px-8">
           <Badge className="mb-6 border-0 bg-blue-50 px-4 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100">
             <Sparkles className="mr-1.5 h-3.5 w-3.5" />
             Simple pricing for growing stores
@@ -267,39 +267,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-blue-600 p-12 text-center text-white shadow-2xl shadow-blue-200 md:p-20">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-400/20 to-transparent" />
-
-          <div className="relative z-10">
-            <h2 className="mx-auto mb-6 max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-              Stop updating prices manually.
-            </h2>
-
-            <p className="mx-auto mb-10 max-w-xl text-lg text-blue-100 md:text-xl">
-              Let Opsell do the work while you focus on your business.
-            </p>
-
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
-              <Button className="h-12 rounded-xl bg-white px-8 font-medium text-blue-600 hover:bg-slate-100">
-                Start Free Trial
-              </Button>
-
-              <Button
-                variant="outline"
-                className="h-12 rounded-xl border-white/30 bg-transparent px-8 font-medium text-white hover:bg-white/10 hover:text-white"
-              >
-                Talk to Us
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer className="border-t border-slate-200 py-8 text-center text-sm text-slate-500">
-        © 2026 Opsell. Built for sellers who'd rather be selling.
-      </footer>
+      
     </main>
   );
 }
