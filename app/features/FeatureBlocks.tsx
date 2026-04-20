@@ -14,8 +14,8 @@ const Mock1 = () => (
   <div className="space-y-3">
     {[
       { name: "Wireless Headphones", price: "$89.00", change: "−$4", up: false },
-      { name: "Smart Watch Pro",     price: "$149.90", change: "+$10", up: true },
-      { name: "Bluetooth Speaker",   price: "$39.50",  change: "−$2", up: false },
+      { name: "Smart Watch Pro", price: "$149.90", change: "+$10", up: true },
+      { name: "Bluetooth Speaker", price: "$39.50", change: "−$2", up: false },
     ].map((p) => (
       <div key={p.name} className="flex items-center justify-between rounded-2xl bg-blue-50/60 px-4 py-3">
         <div className="flex items-center gap-3">
@@ -57,9 +57,9 @@ const Mock2 = () => (
 const Mock3 = () => (
   <div className="space-y-3">
     {[
-      { icon: Package,   title: "Bundle T-shirt + Cap",      note: "Trending together" },
+      { icon: Package, title: "Bundle T-shirt + Cap", note: "Trending together" },
       { icon: Lightbulb, title: "Promote Summer Collection", note: "High demand week" },
-      { icon: BarChart3, title: "Restock Sneakers Black",    note: "Low inventory" },
+      { icon: BarChart3, title: "Restock Sneakers Black", note: "Low inventory" },
     ].map((s) => (
       <div key={s.title} className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-white p-4">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50">
@@ -100,10 +100,10 @@ const Mock4 = () => (
 );
 
 const features: Feature[] = [
-  { label: "Competitor Tracking", title: "Track Competitors in Real Time",  description: "See when competitors change prices, run discounts, or go out of stock — all in one place.", bullets: ["Live price tracking", "Competitor alerts", "Stock monitoring"], Icon: Activity, mockup: <Mock1 /> },
-  { label: "Smart Pricing",       title: "Know the Best Price to Set",      description: "Opsell suggests the best price for your products so you can increase sales without lowering profits.", bullets: ["Smart price suggestions", "Protect profit margins", "Increase conversions"], Icon: Tag, mockup: <Mock2 /> },
-  { label: "Growth Insights",     title: "Get Clear Growth Suggestions",    description: "Receive simple recommendations like what to bundle, what to promote, and what to restock.", bullets: ["Product recommendations", "Bundle suggestions", "Sales insights"], Icon: Lightbulb, mockup: <Mock3 /> },
-  { label: "Automation",          title: "Save Time with Automation",       description: "Set rules once and let Opsell handle repetitive work automatically.", bullets: ["Automatic alerts", "Price updates", "Weekly reports"], Icon: Zap, mockup: <Mock4 /> },
+  { label: "Competitor Tracking", title: "Track Competitors in Real Time", description: "See when competitors change prices, run discounts, or go out of stock — all in one place.", bullets: ["Live price tracking", "Competitor alerts", "Stock monitoring"], Icon: Activity, mockup: <Mock1 /> },
+  { label: "Smart Pricing", title: "Know the Best Price to Set", description: "Opsell suggests the best price for your products so you can increase sales without lowering profits.", bullets: ["Smart price suggestions", "Protect profit margins", "Increase conversions"], Icon: Tag, mockup: <Mock2 /> },
+  { label: "Growth Insights", title: "Get Clear Growth Suggestions", description: "Receive simple recommendations like what to bundle, what to promote, and what to restock.", bullets: ["Product recommendations", "Bundle suggestions", "Sales insights"], Icon: Lightbulb, mockup: <Mock3 /> },
+  { label: "Automation", title: "Save Time with Automation", description: "Set rules once and let Opsell handle repetitive work automatically.", bullets: ["Automatic alerts", "Price updates", "Weekly reports"], Icon: Zap, mockup: <Mock4 /> },
 ];
 
 const MockupShell = ({ children }: { children: React.ReactNode }) => (
@@ -120,8 +120,8 @@ const MockupShell = ({ children }: { children: React.ReactNode }) => (
 
 const FeatureBlocks = () => {
   return (
-    <section id="features" className="bg-blue-50/40 py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="features" className="bg-blue-50/40 py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <p className="mb-3 text-xs font-bold uppercase tracking-widest text-blue-600">Core Features</p>
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Built to make growth feel simple</h2>
@@ -134,15 +134,14 @@ const FeatureBlocks = () => {
             return (
               <article
                 key={f.title}
-                className="group grid items-center gap-8 rounded-3xl border border-gray-200/60 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-[0_4px_24px_0_rgba(59,111,240,0.10)] sm:p-10 lg:grid-cols-2 lg:gap-14"
-              >
+                className="group grid items-center gap-8 rounded-3xl border border-gray-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-[0_4px_24px_0_rgba(59,111,240,0.10)] sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-10"              >
                 {/* Copy */}
                 <div className={reverse ? "lg:order-2" : ""}>
                   <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-600">
                     <f.Icon className="h-3.5 w-3.5" />
                     {f.label}
                   </div>
-                  <h3 className="mt-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{f.title}</h3>
+                  <h3 className="mt-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl lg:text-4xl">{f.title}</h3>
                   <p className="mt-3 text-base leading-relaxed text-gray-500">{f.description}</p>
                   <ul className="mt-6 space-y-3">
                     {f.bullets.map((b) => (
@@ -154,8 +153,7 @@ const FeatureBlocks = () => {
                       </li>
                     ))}
                   </ul>
-                  <button className="mt-7 inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-200 transition hover:bg-blue-700 active:scale-95">
-                    Learn More
+                  <button className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-200 transition hover:bg-blue-700 active:scale-95 sm:w-auto">                    Learn More
                     <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
