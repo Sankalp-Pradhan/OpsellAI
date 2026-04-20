@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Geist } from "next/font/google"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import { Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 const geist = Geist({
@@ -13,14 +14,17 @@ const geist = Geist({
 
 const navLinks = [
   {
-    label: "Features",
-    href: "/features",
+    label: "Home",
+    href: "/",
   },
   {
     label: "How it Works",
     href: "/works",
   },
-
+  {
+    label: "Features",
+    href: "/features",
+  },
   {
     label: "Pricing",
     href: "/pricing",
@@ -30,6 +34,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [screenWidth, setScreenWidth] = useState(1200)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -106,40 +111,41 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
-          <ul className="flex items-center gap-2">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href
+  <ul className="flex items-center gap-2">
+    {navLinks.map((link) => {
+      const isActive = pathname === link.href
 
-              return (
-                <li key={link.href} className="relative">
-                  <Link
-                    href={link.href}
-                    className={`relative flex h-10 items-center justify-center rounded-full px-5 text-sm font-medium transition-all duration-300 ${isActive
-                        ? "text-slate-900"
-                        : "text-slate-500 hover:text-slate-900"
-                      }`}
-                  >
-                    {isActive && (
-                      <motion.div
-                        layoutId="nav-pill"
-                        className="absolute inset-0 rounded-full border border-slate-200 bg-white shadow-sm"
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 30,
-                        }}
-                      />
-                    )}
+      return (
+        <li key={link.href} className="relative">
+          <Link
+            href={link.href}
+            className={`relative flex h-10 items-center justify-center rounded-full px-5 text-sm font-medium transition-all duration-300 ${
+              isActive
+                ? "text-slate-900"
+                : "text-slate-500 hover:text-slate-900"
+            }`}
+          >
+            {isActive && (
+              <motion.div
+                layoutId="nav-pill"
+                className="absolute inset-0 rounded-full border border-slate-200 bg-white shadow-sm"
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 30,
+                }}
+              />
+            )}
 
-                    <span className="relative z-10">{link.label}</span>
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </nav>
+            <span className="relative z-10">{link.label}</span>
+          </Link>
+        </li>
+      )
+    })}
+  </ul>
+</nav>
 
-        {/* CTA */}
+        {/* Right Side */}
         <div className="flex items-center gap-3">
           <Link
             href="#"
@@ -147,7 +153,58 @@ export default function Navbar() {
           >
             Try for free
           </Link>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm md:hidden"
+          >
+            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
         </div>
+      </motion.div>
+
+      {/* Mobile Navigation */}
+      <motion.div
+        initial={false}
+        animate={{
+          opacity: mobileMenuOpen ? 1 : 0,
+          y: mobileMenuOpen ? 0 : -10,
+          pointerEvents: mobileMenuOpen ? "auto" : "none",
+        }}
+        transition={{ duration: 0.2 }}
+        className="mx-4 mt-3 overflow-hidden rounded-3xl border border-slate-200 bg-white/95 shadow-xl backdrop-blur md:hidden"
+      >
+        {mobileMenuOpen && (
+          <div className="flex flex-col p-3">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                    isActive
+                      ? "bg-blue-50 text-blue-600"
+                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
+
+            <Link
+              href="#"
+              className="mt-3 flex items-center justify-center rounded-2xl bg-blue-600 px-4 py-3 text-sm font-medium text-white transition hover:bg-blue-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Try for free
+            </Link>
+          </div>
+        )}
       </motion.div>
     </header>
   )
