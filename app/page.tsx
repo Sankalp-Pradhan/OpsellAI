@@ -41,6 +41,7 @@ export default function Home() {
   return (
     <div className={`${geist.className}  py-4  border-4`}>
       <div className=" border-b-4 z-1">
+       
       
         <AnimatedBackground />
 

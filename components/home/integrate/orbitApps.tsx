@@ -1,7 +1,31 @@
-import React from 'react';
+"use client";
+
+import React, { useEffect, useMemo, useState } from 'react';
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import Image from 'next/image';
+
+function radiiForWidth(width: number) {
+    return {
+        inner: width < 640 ? 90 : width < 1024 ? 120 : 150,
+        outer: width < 640 ? 140 : width < 1024 ? 180 : 230,
+    };
+}
+
 const OrbitApps = () => {
+    const [width, setWidth] = useState<number | null>(null);
+
+    useEffect(() => {
+        const update = () => setWidth(window.innerWidth);
+        update();
+        window.addEventListener("resize", update, { passive: true });
+        return () => window.removeEventListener("resize", update);
+    }, []);
+
+    const { inner, outer } = useMemo(
+        () => radiiForWidth(width ?? 1024),
+        [width]
+    );
+
     return (
         <div className="relative flex h-[320px] sm:h-[420px] lg:h-[500px] w-full items-center justify-center overflow-hidden">
             {/* Grid background */}
@@ -28,7 +52,7 @@ const OrbitApps = () => {
 
             {/* Inner orbit */}
             <OrbitingCircles
-                radius={window.innerWidth < 640 ? 90 : window.innerWidth < 1024 ? 120 : 150}
+                radius={inner}
                 duration={20}
                 delay={10}
             >
@@ -65,7 +89,7 @@ const OrbitApps = () => {
 
             {/* Outer orbit */}
             <OrbitingCircles
-                radius={window.innerWidth < 640 ? 140 : window.innerWidth < 1024 ? 180 : 230}
+                radius={outer}
                 duration={20}
                 delay={10}
                 reverse

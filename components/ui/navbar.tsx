@@ -17,7 +17,7 @@ const navLinks = [
   },
   {
     label: "How it Works",
-    href: "#works",
+    href: "/works",
   },
   {
     label: "Features",

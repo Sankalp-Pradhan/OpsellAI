@@ -89,7 +89,7 @@ const StepRow = ({
       {/* LEFT — text content */}
       <div className="max-w-xl">
         <div className="flex items-center gap-3 mb-6">
-          <span className="text-5xl font-light leading-none select-none tabular-nums" style={{ color: "#4F8CFF" }}>
+          <span className="text-5xl font-light text-emerald-400 leading-none select-none tabular-nums">
             {step.n}
           </span>
           <span className="h-px flex-1 bg-slate-200" />
@@ -110,16 +110,13 @@ const StepRow = ({
         <ul className="space-y-2.5 mb-8">
           {step.bullets.map((b) => (
             <li key={b} className="flex items-start gap-3 text-sm text-slate-900/80">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: "#4F8CFF" }} />
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
               {b}
             </li>
           ))}
         </ul>
 
-        <button
-          className="group inline-flex items-center gap-2 text-sm font-semibold text-slate-900 pb-1 hover:gap-3 transition-all"
-          style={{ borderBottom: "2px solid #4F8CFF" }}
-        >
+        <button className="group inline-flex items-center gap-2 text-sm font-semibold text-slate-900 border-b-2 border-emerald-400 pb-1 hover:gap-3 transition-all">
           Try this step in demo
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </button>
@@ -128,10 +125,7 @@ const StepRow = ({
       {/* RIGHT — mockup */}
       <div className="relative w-full">
         {/* glow */}
-        <div
-          className="absolute -inset-8 rounded-[3rem] blur-3xl pointer-events-none"
-          style={{ backgroundColor: "rgba(79,140,255,0.08)" }}
-        />
+        <div className="absolute -inset-8 rounded-[3rem] bg-emerald-400/8 blur-3xl pointer-events-none" />
 
         <div className="relative rounded-[2rem] border border-slate-200 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.10)] overflow-hidden aspect-[4/5] w-full max-w-[480px] mx-auto lg:mx-0 lg:ml-auto">
           <StepMockup step={index} />
@@ -153,26 +147,7 @@ const Index = () => {
       className="bg-zinc-50 min-h-screen text-slate-900 overflow-x-hidden"
       style={{ fontFamily: "'Geist', 'Geist Sans', system-ui, -apple-system, sans-serif" }}
     >
-      {/* ── Nav ── */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-zinc-50/80 border-b border-slate-200/60">
-        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-          <a href="/" className="flex items-center gap-2 text-xl font-semibold tracking-tight">
-            <span className="h-7 w-7 rounded-lg grid place-items-center shrink-0" style={{ backgroundColor: "#4F8CFF" }}>
-              <Sparkles className="h-4 w-4 text-white" />
-            </span>
-            Opsell
-          </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm text-slate-500">
-            <a className="hover:text-slate-900 transition-colors" href="#">Product</a>
-            <a className="text-slate-900 font-medium" href="#how">How it works</a>
-            <a className="hover:text-slate-900 transition-colors" href="#">Pricing</a>
-            <a className="hover:text-slate-900 transition-colors" href="#">Customers</a>
-          </nav>
-          <button className="text-sm font-semibold bg-slate-900 text-zinc-50 px-4 py-2 rounded-full hover:bg-slate-800 transition-colors">
-            Try demo
-          </button>
-        </div>
-      </header>
+      
 
       {/* ── Hero ── */}
       <section className="relative pt-20 pb-14 lg:pt-28 lg:pb-20">
@@ -184,19 +159,13 @@ const Index = () => {
             transition={{ duration: 0.7 }}
             className="max-w-3xl"
           >
-            <span
-              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] mb-6"
-              style={{ color: "#4F8CFF" }}
-            >
-              <span
-                className="h-1.5 w-1.5 rounded-full animate-pulse"
-                style={{ backgroundColor: "#4F8CFF" }}
-              />
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-blue-400 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
               How it works
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-semibold leading-[1.04] tracking-tight text-balance mb-6">
               From raw product data to{" "}
-              <span className="italic font-light" style={{ color: "#4F8CFF" }}>more sales</span> in 4 simple steps.
+              <span className="italic font-light text-blue-400">more sales</span> in 4 simple steps.
             </h1>
             <p className="text-base md:text-xl text-slate-500 max-w-2xl text-balance leading-relaxed">
               Opsell connects to your store, studies the market, and tells you exactly what to
@@ -210,7 +179,7 @@ const Index = () => {
                 key={s.n}
                 className="inline-flex items-center gap-2 text-xs font-medium px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm"
               >
-                <span className="tabular-nums" style={{ color: "#4F8CFF" }}>{s.n}</span>
+                <span className="text-emerald-400 tabular-nums">{s.n}</span>
                 {s.title}
               </span>
             ))}
@@ -220,16 +189,25 @@ const Index = () => {
 
       {/* ── Steps — separate rows ── */}
       <div id="how" className="container mx-auto px-4 sm:px-6">
+
+        {/* Step 01 — Connect */}
         <StepRow step={STEPS[0]} index={0} />
+
+        {/* Step 02 — Analyze */}
         <StepRow step={STEPS[1]} index={1} />
+
+        {/* Step 03 — Suggest */}
         <StepRow step={STEPS[2]} index={2} />
+
+        {/* Step 04 — Growth */}
         <StepRow step={STEPS[3]} index={3} />
+
       </div>
 
       {/* ── Results strip ── */}
       <section className="bg-slate-900 text-slate-100 py-16 sm:py-20 mt-12">
         <div className="container mx-auto px-4 sm:px-6">
-          <p className="text-xs uppercase tracking-[0.25em] mb-4 font-medium" style={{ color: "#4F8CFF" }}>
+          <p className="text-xs uppercase tracking-[0.25em] text-emerald-400 mb-4 font-medium">
             Real outcomes
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-10 sm:mb-12 max-w-2xl text-balance leading-[1.1]">
@@ -242,7 +220,7 @@ const Index = () => {
               { v: 12, s: "%", l: "Fewer abandoned carts", neg: true },
             ].map((m) => (
               <div key={m.l} className="border-t border-slate-100/15 pt-6">
-                <p className="text-5xl sm:text-6xl md:text-7xl font-light tabular-nums" style={{ color: "#4F8CFF" }}>
+                <p className="text-5xl sm:text-6xl md:text-7xl font-light text-emerald-400 tabular-nums">
                   {m.neg ? "−" : "+"}
                   <CountUp to={m.v} suffix={m.s} />
                 </p>
@@ -257,10 +235,7 @@ const Index = () => {
       <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="relative rounded-3xl bg-white border border-slate-200 p-8 sm:p-10 md:p-16 shadow-xl overflow-hidden">
-            <div
-              className="absolute -top-20 -right-20 h-72 w-72 rounded-full opacity-20 blur-3xl pointer-events-none"
-              style={{ backgroundColor: "#4F8CFF" }}
-            />
+            <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-emerald-400 opacity-20 blur-3xl pointer-events-none" />
             <div className="relative max-w-2xl">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-5 text-balance leading-[1.1]">
                 Ready to stop guessing your prices?
@@ -282,7 +257,7 @@ const Index = () => {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-slate-200 py-8 sm:py-10">
+      {/* <footer className="border-t border-slate-200 py-8 sm:py-10">
         <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
           <p>© {new Date().getFullYear()} Opsell. Pricing intelligence for modern commerce.</p>
           <div className="flex gap-6">
@@ -291,7 +266,7 @@ const Index = () => {
             <a href="#" className="hover:text-slate-900 transition-colors">Contact</a>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </main>
   );
 };

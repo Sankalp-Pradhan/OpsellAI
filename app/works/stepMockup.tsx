@@ -349,6 +349,7 @@ export const StepMockup = ({ step }: { step: number }) => {
   const steps = [<StepConnect />, <StepAnalyze />, <StepRecommend />, <StepGrowth />];
 
   return (
+    // This wrapper must be relative + h-full so absolute children have a resolved height
     <div className="relative h-full w-full">
       <AnimatePresence mode="wait">
         <motion.div
